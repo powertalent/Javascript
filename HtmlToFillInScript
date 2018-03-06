@@ -1,0 +1,21 @@
+nodeList = document.querySelectorAll('select,input,textarea');
+var exportScript = '';
+Array.prototype.forEach.call(nodeList, function(node){ 
+    
+    switch(node.tagName){        
+        case 'INPUT':
+            // console.log('document.getElementsByName(\"' + node.name + '")[0].value="' + node.value + '"'); 
+            exportScript += 'document.getElementsByName(\"' + node.name + '")[0].value="' + node.value + '";\n'
+            break;
+        case 'SELECT':
+            //console.log('document.getElementsByName(\"' + node.name + '")[0].value="' + node.value + '"'); 
+            exportScript += 'document.getElementsByName(\"' + node.name + '")[0].value="' + node.value + '";\n'
+            break;
+        case 'TEXTAREA':
+            //console.log('document.getElementsByName(\"' + node.name + '")[0].value="' + node.value + '"'); 
+             exportScript += 'document.getElementsByName(\"' + node.name + '")[0].value="' + node.value + '";\n' 
+            break;
+        default:             
+    }    
+});
+console.log(exportScript);
